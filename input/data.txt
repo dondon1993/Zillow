@@ -1,0 +1,7 @@
+This folder contains the data used in this competition:
+1. zillow_data_dictionary.xlsx
+2. sample_submission.csv
+3. properties_2016.csv
+4. properties_2017.csv
+5. train_2016_v2.csv
+6. train_2017.csv 
