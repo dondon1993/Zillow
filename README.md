@@ -44,7 +44,7 @@ By examining target value logerror distribution we can see most logerror values 
 
 # Feature Engineering
 
-The most important feature comes from samples with more than 1 sale records in the training set. In the figure below logerror_first is from the previous record and logerror_second is the target logerror. And we can see the model tends to underestimate the price for lots with sale records, which results in a overall negative logerror. Based on this observation, lag features such as last logerror and last sale month are generated.
+The most important feature comes from samples with more than 1 sale records in the training set. In the figure below logerror_first is from the previous record and logerror_second is the target logerror. And we can see the model tends to underestimate the price for lots with sale records, which results in a overall negative logerror. Based on this observation, lag features such as last logerror and last sale month are generated. However, this feature will not help public leaderboard since they aren't many lots sold twice within one year. Over 90 percent of this part of data comes from 2017 training dataset.
 ![Figure](./images/firstsale_secondsale.PNG)
 
 Besides the sale record features, target encoding using combination of categorical features (county + propertycountylandusecode, city + propertycountylandusecode, county + zoningdesc, city + zoningdesc et. al.) also helps a little.
