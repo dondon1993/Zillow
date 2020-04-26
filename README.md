@@ -27,3 +27,22 @@ and it is recorded in the transactions file train.csv. In this competition, you 
 # Data Fields
 
 * Please refer to zillow_data_dictionary.xlsx
+
+# Experience Overview
+
+During COVID-19 Lockdown, I decided to start my data challenge series, where I will pick previous kaggle competitions, each competition I will work for 1 month and see what rank I can achieve in the competition leaderboard. This is the first competition. I picked it simply due to its high reward and it comes on top of completed competitions in kaggle. 
+
+One thing to mention before I start writing my experience is that when I started this data challenge, I already have the access to both 2016 and 2017 data, which is different from how the competition went. So I started modelling with both datasets from the beginning.
+
+We are provided with training data from 2016 January to 2017 September. We are also provided with properties datasets in 2016 and 2017 which contain basic information (size, room count et.al.) about different lots. And we are asked to predict logerror in October, November and December of 2016 and 2017. Remember, we are asked to predict logerror, which is the log(Zestimate) from company's model minus log(SalePrice). This means we are doing residual modelling.
+
+# Data preprocessing
+
+By doing some EDA, a very noticable phenomenon in datasets properties_2016 and properties_2017 is that a lot of numerical features have a highly skewed data distribution. Therefore I take log of these features to make distributions close to normal. This also makes sense because the logerror we are trying to predict is the percentage difference between estimation and deal price. To match this, for features such as housing price or size, taking the log can be helpful since it helps to understand the percentage difference.
+
+By examining target value logerror distribution we can see most logerror values are in the range of (-0.2, 0.2) with some large outliers. We keep the logerror value during data preprocessing stage. Then we merge the train_2016 with properties_2016 and train_2017 with properties_2017 and combine these two merged datasets together to form the training set.
+
+# Feature Engineering
+
+The most important feature comes from samples with more than 1 sale records in the training set. If we
+![Figure](/images/firstsale_secondsale.png)
