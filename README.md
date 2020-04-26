@@ -44,5 +44,37 @@ By examining target value logerror distribution we can see most logerror values 
 
 # Feature Engineering
 
-The most important feature comes from samples with more than 1 sale records in the training set. If we
+The most important feature comes from samples with more than 1 sale records in the training set. In the figure below logerror_first is from the previous record and logerror_second is the target logerror. And we can see the model tends to underestimate the price for lots with sale records, which results in a overall negative logerror. Based on this observation, lag features such as last logerror and last sale month are generated.
 ![Figure](./images/firstsale_secondsale.PNG)
+
+Besides the sale record features, target encoding using combination of categorical features (county + propertycountylandusecode, city + propertycountylandusecode, county + zoningdesc, city + zoningdesc et. al.) also helps a little.
+
+# Modelling
+
+Since we are asked to predict the error, we should be careful with the outlier. The intuition is there is no way a logerror whose magnitude is larger than 1 can be predicted since first there is not much data; second this can come from "accidents" and we don't have enough information to understand these accidents. I tried both throwing away outliers and clipping target logerror values. In my case clipping target logerror values is a little better.
+
+Lightgbm model is used with 5 fold cross-validation after shuffling the data. Later on 7 and 8 folds are tried and they only slightly improve the result. Xgboost is signficantly worse than lightgbm. I also tried fully connected neural network but it also doesn't help so I stick to lighgbm model. Another big improvent comes from the change of loss function in lightgbm. After changing loss function from mean-squared-error (mse) to mean-abosulte-error (mae), the result improves a lot. This may be because mae is more robust and less influenced by outliers. Later, it is also observed by clipping target values comparably good results can be achieved with mse loss function.
+
+My individual lightgbm models achieve around 0.06418 in public leaderboard (LB) and 0.07447 in private LB. Blending 6 best public LB results give a 0.06414 public LB and 0.07443 private LB, which ranks 200th in the public LB and 6th in the private LB out of 3775 participating teams.
+
+# Summary
+
+Baseline model: public: 0.06499  private: 0.07581
+What works:
+* Winsorization (Clip target value) (public: 0.06466  private: 0.07548)
+* Change loss function (public: 0.06417  private: 0.07503)
+* Lag features (public: 0.06420  private: 0.07453)
+* Target encoding (public: 0.06417  private: 0.07446)
+* Blending (public: 0.06414  private: 0.07443)
+
+What doesn't work:
+
+* xgboost
+* Fully connected neural network
+* Aggregation features
+* Stacking
+* Time related features
+
+# Things to improve
+
+* Will update later after visiting top solutions
