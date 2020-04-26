@@ -45,4 +45,4 @@ By examining target value logerror distribution we can see most logerror values 
 # Feature Engineering
 
 The most important feature comes from samples with more than 1 sale records in the training set. If we
-![Figure](/images/firstsale_secondsale.png)
+![Figure](./images/firstsale_secondsale.PNG)
