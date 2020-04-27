@@ -74,6 +74,7 @@ What doesn't work:
 * Aggregation features
 * Stacking
 * Time related features
+* Build a classification model to classify outliers
 
 # Things to improve
 
