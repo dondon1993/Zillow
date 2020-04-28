@@ -78,4 +78,4 @@ What doesn't work:
 
 # Things to improve
 
-* Will update later after visiting top solutions
+* Un-supervised learning methods and clustering algorithm
