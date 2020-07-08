@@ -30,9 +30,7 @@ and it is recorded in the transactions file train.csv. In this competition, you 
 
 # Experience Overview
 
-During COVID-19 Lockdown, I decided to start my data challenge series, where I will pick previous kaggle competitions, each competition I will work for 1 month and see what rank I can achieve in the competition leaderboard. This is the first competition. I picked it simply due to its high reward and it comes on top of completed competitions in kaggle. 
-
-One thing to mention before I start writing my experience is that when I started this data challenge, I already have the access to both 2016 and 2017 data, which is different from how the competition went. So I started modelling with both datasets from the beginning.
+Before I start writing my experience is that when I started this data challenge, I already have the access to both 2016 and 2017 data, which is different from how the competition went. So I started modelling with both datasets from the beginning.
 
 We are provided with training data from 2016 January to 2017 September. We are also provided with properties datasets in 2016 and 2017 which contain basic information (size, room count et.al.) about different lots. And we are asked to predict logerror in October, November and December of 2016 and 2017. Remember, we are asked to predict logerror, which is the log(Zestimate) from company's model minus log(SalePrice). This means we are doing residual modelling.
 
