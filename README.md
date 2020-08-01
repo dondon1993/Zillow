@@ -77,3 +77,4 @@ What doesn't work:
 # Things to improve
 
 * Un-supervised learning methods and clustering algorithm
+* Feature engineering
