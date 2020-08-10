@@ -1,6 +1,6 @@
 # Zillow: Overview
 
-In this competition, Zillow is asking you to predict the log-error between their Zestimate and the actual sale price, given all the features of a home. The log error is defined as:
+In this [competition](https://www.kaggle.com/c/zillow-prize-1), Zillow is asking you to predict the log-error between their Zestimate and the actual sale price, given all the features of a home. The log error is defined as:
 
                                           logerror=log(Zestimate)−log(SalePrice)
                                           
