@@ -53,7 +53,7 @@ Since we are asked to predict the error, we should be careful with the outlier. 
 
 Lightgbm model is used with 5 fold cross-validation after shuffling the data. Later on 7 and 8 folds are tried and they only slightly improve the result. Xgboost is signficantly worse than lightgbm. I also tried fully connected neural network but it also doesn't help so I stick to lighgbm model. Another big improvent comes from the change of loss function in lightgbm. After changing loss function from mean-squared-error (mse) to mean-abosulte-error (mae), the result improves a lot. This may be because mae is more robust and less influenced by outliers. Later, it is also observed by clipping target values comparably good results can be achieved with mse loss function.
 
-My individual lightgbm models achieve around 0.06418 in public leaderboard (LB) and 0.07447 in private LB. Blending 6 best public LB results give a 0.06414 public LB and 0.07443 private LB, which ranks 200th in the public LB and 6th in the private LB out of 3775 participating teams.
+My individual lightgbm models trained with different random seeds achieve around 0.06418 in public leaderboard (LB) and 0.07447 in private LB. Blending 6 models with best public LB results give a 0.06414 public LB and 0.07443 private LB, which ranks 200th in the public LB and 6th in the private LB out of 3775 participating teams.
 
 # Summary
 
