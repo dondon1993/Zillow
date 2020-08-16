@@ -204,8 +204,8 @@ def model_train(df_train, train_config):
     seed = train_config.seed
     folds = KFold(train_config.n_splits, shuffle = True, random_state = train_config.seed)
     
-    X_train = train.loc[(train['month_block']>3),train_config.features]
-    y_train = train.loc[(train['month_block']>3),'logerror'].clip(-1, 1) 
+    X_train = df_train.loc[(df_train['month_block']>3),train_config.features]
+    y_train = df_train.loc[(df_train['month_block']>3),'logerror'].clip(-1, 1) 
     
     result_dict = train_model_regression_Zillow(
                          X=X_train, 
